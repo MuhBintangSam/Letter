@@ -3,12 +3,10 @@ $("#messageState").on("change", (x) => {
 	if ($("#messageState").is(":checked")) {
 		$(".message").removeClass("closed").removeClass("no-anim").addClass("openNor");
 		$(".heart").removeClass("closeHer").removeClass("openedHer").addClass("openHer");
-		// $(".container").stop().animate({"backgroundColor": "#f48fb1"}, 2000);
 		console.log("Abrindo");
 	} else {
 		$(".message").removeClass("no-anim").addClass("closeNor");
 		$(".heart").removeClass("openHer").removeClass("openedHer").addClass("closeHer");
-		// $(".container").stop().animate({"backgroundColor": "#fce4ec"}, 2000);
 		console.log("fechando");
 	}
 });
@@ -27,4 +25,11 @@ $(".heart").on('webkitAnimationEnd oanimationend msAnimationEnd animationend', f
 	else
 		$(".heart").addClass("no-anim").removeClass("beating");
 	$(".heart").removeClass("openHer").removeClass("closeHer");
+});
+
+$(".heart").on("click", function() {
+    var audio = document.getElementById("bg-music");
+    if (audio.paused) {
+        audio.play();
+    }
 });
